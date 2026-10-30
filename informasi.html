@@ -19,12 +19,14 @@
       </svg>
       Kedai Hygenies
     </a>
-    <nav class="main-nav" aria-label="Navigasi utama">
+    <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="Navigasi utama">
       <ul>
         <li><a href="index.html">Beranda</a></li>
         <li><a href="informasi.html" class="active">Panduan Lengkap</a></li>
         <li><a href="informasi.html#haccp">Sistem HACCP</a></li>
         <li><a href="informasi.html#checklist">Checklist</a></li>
+        <li><a href="index.html#kontak">Kontak</a></li>
       </ul>
     </nav>
   </div>
@@ -70,11 +72,7 @@
             <li>Ganti lap dan spons secara rutin — kain basah yang dipakai berulang adalah sarang bakteri.</li>
           </ul>
         </div>
-        <svg class="icon-box" viewBox="0 0 160 160" aria-hidden="true">
-          <circle cx="80" cy="80" r="72" fill="#E1EAE0"/>
-          <path d="M80 40c14 18 24 32 24 46a24 24 0 1 1-48 0c0-14 10-28 24-46z" fill="#1F4D3F"/>
-          <circle cx="80" cy="86" r="8" fill="#FBFAF5"/>
-        </svg>
+        <img class="article-img" src="images/handwash.svg" alt="Ilustrasi mencuci tangan dengan sabun di bawah air mengalir" loading="lazy">
       </div>
     </article>
 
@@ -96,12 +94,7 @@
             <p>Mencuci daging ayam atau daging sapi mentah di bawah air keran justru berisiko — percikan airnya bisa menyebarkan bakteri ke wastafel dan permukaan sekitar. Memasak dengan suhu yang tepat jauh lebih efektif membunuh bakteri dibanding mencucinya.</p>
           </div>
         </div>
-        <svg class="icon-box" viewBox="0 0 160 160" aria-hidden="true">
-          <circle cx="80" cy="80" r="72" fill="#E1EAE0"/>
-          <rect x="34" y="60" width="50" height="66" rx="6" fill="#1F4D3F"/>
-          <rect x="82" y="46" width="50" height="66" rx="6" fill="#C1443C" opacity="0.85"/>
-          <path d="M60 20l0 24M100 20l0 24" stroke="#1C2B22" stroke-width="4" stroke-linecap="round"/>
-        </svg>
+        <img class="article-img" src="images/boards.svg" alt="Ilustrasi talenan merah untuk bahan mentah dan talenan hijau untuk sayuran" loading="lazy">
       </div>
     </article>
 
@@ -113,23 +106,18 @@
           <h2>Suhu memasak yang tepat</h2>
           <p>Memasak sampai suhu tertentu adalah cara paling efektif membunuh bakteri berbahaya seperti Salmonella dan E. coli. Kalau punya termometer makanan, gunakan — kalau tidak, patokan tanda kematangan di bawah ini bisa membantu.</p>
         </div>
-        <svg class="icon-box" viewBox="0 0 160 160" aria-hidden="true">
-          <circle cx="80" cy="80" r="72" fill="#E1EAE0"/>
-          <rect x="70" y="30" width="20" height="70" rx="10" fill="#C1443C"/>
-          <circle cx="80" cy="115" r="20" fill="#C1443C"/>
-          <rect x="75" y="40" width="10" height="60" fill="#FBFAF5"/>
-        </svg>
+        <img class="article-img" src="images/thermometer.svg" alt="Ilustrasi termometer makanan pada daging yang sedang dimasak" loading="lazy">
       </div>
       <table class="temp-table">
         <thead>
           <tr><th>Jenis bahan makanan</th><th>Suhu minimal</th><th>Tanda matang</th></tr>
         </thead>
         <tbody>
-          <tr><td>Daging sapi, kambing, atau babi (potongan utuh)</td><td><b>62°C</b></td><td>Diamkan 3 menit setelah dimasak sebelum dipotong</td></tr>
-          <tr><td>Daging giling (sapi, ayam, babi)</td><td><b>71°C</b></td><td>Tidak ada bagian yang masih merah muda</td></tr>
-          <tr><td>Ayam, bebek, dan unggas lain</td><td><b>71°C</b></td><td>Bagian dalam tidak lagi pink, cairan bening</td></tr>
-          <tr><td>Ikan bersirip</td><td><b>62°C</b></td><td>Daging berubah warna dan mudah dipisah dengan garpu</td></tr>
-          <tr><td>Sup, kuah, dan makanan berkuah</td><td><b>70°C</b></td><td>Mendidih rata, dipanaskan cukup lama</td></tr>
+          <tr><td>Daging sapi, kambing, atau babi (potongan utuh)</td><td data-label="Suhu minimal"><b>62°C</b></td><td data-label="Tanda matang">Diamkan 3 menit setelah dimasak sebelum dipotong</td></tr>
+          <tr><td>Daging giling (sapi, ayam, babi)</td><td data-label="Suhu minimal"><b>71°C</b></td><td data-label="Tanda matang">Tidak ada bagian yang masih merah muda</td></tr>
+          <tr><td>Ayam, bebek, dan unggas lain</td><td data-label="Suhu minimal"><b>71°C</b></td><td data-label="Tanda matang">Bagian dalam tidak lagi pink, cairan bening</td></tr>
+          <tr><td>Ikan bersirip</td><td data-label="Suhu minimal"><b>62°C</b></td><td data-label="Tanda matang">Daging berubah warna dan mudah dipisah dengan garpu</td></tr>
+          <tr><td>Sup, kuah, dan makanan berkuah</td><td data-label="Suhu minimal"><b>70°C</b></td><td data-label="Tanda matang">Mendidih rata, dipanaskan cukup lama</td></tr>
         </tbody>
       </table>
       <p style="max-width:70ch; color:var(--ink-soft); font-size:0.92rem;">Saat menghangatkan makanan dengan microwave atau kompor, pastikan seluruh bagian makanan panas merata, bukan hanya di permukaan.</p>
@@ -150,13 +138,7 @@
             <li>Cairkan bahan beku di dalam kulkas, bukan di suhu ruang — kalau butuh cepat, rendam dalam air dingin mengalir atau gunakan microwave.</li>
           </ul>
         </div>
-        <svg class="icon-box" viewBox="0 0 160 160" aria-hidden="true">
-          <circle cx="80" cy="80" r="72" fill="#E1EAE0"/>
-          <rect x="52" y="24" width="56" height="112" rx="8" fill="#1F4D3F"/>
-          <rect x="52" y="24" width="56" height="42" rx="8" fill="#14352B"/>
-          <circle cx="90" cy="45" r="3" fill="#FBFAF5"/>
-          <circle cx="90" cy="100" r="3" fill="#FBFAF5"/>
-        </svg>
+        <img class="article-img" src="images/fridge.svg" alt="Ilustrasi kulkas dengan bahan mentah di rak paling bawah" loading="lazy">
       </div>
       <div class="callout danger">
         <h4>Zona bahaya suhu makanan</h4>
@@ -179,11 +161,7 @@
             <li>Jangan menjual atau menggunakan bahan yang sudah melewati tanggal kedaluwarsa.</li>
           </ul>
         </div>
-        <svg class="icon-box" viewBox="0 0 160 160" aria-hidden="true">
-          <circle cx="80" cy="80" r="72" fill="#E1EAE0"/>
-          <path d="M80 34c16 22 30 40 30 56a30 30 0 1 1-60 0c0-16 14-34 30-56z" fill="#E2A63B"/>
-          <circle cx="70" cy="98" r="7" fill="#FBFAF5"/>
-        </svg>
+        <img class="article-img" src="images/produce.svg" alt="Ilustrasi sayur dan buah yang dicuci dengan air bersih" loading="lazy">
       </div>
     </article>
 
@@ -191,6 +169,7 @@
     <article id="haccp">
       <span class="article-tag">Bagian 6</span>
       <h2>Sistem HACCP sederhana untuk warung dan toko</h2>
+      <figure class="wide"><img src="images/stall.svg" alt="Ilustrasi kedai makanan dengan etalase tertutup" loading="lazy"><figcaption>Ganti dengan foto kedai Anda sendiri di images/stall.svg</figcaption></figure>
       <p>HACCP (Hazard Analysis Critical Control Point) adalah sistem yang dipakai usaha makanan di banyak negara untuk mengenali titik-titik yang paling berisiko dalam proses mereka, lalu memantaunya secara rutin. Skalanya bisa disederhanakan sesuai ukuran usaha — warung kecil tidak perlu dokumen setebal restoran besar, tapi prinsipnya tetap bisa dipakai.</p>
       <ol class="step-list">
         <li><strong>Kenali tahapan usaha Anda.</strong> Tuliskan alur singkat: belanja bahan → penyimpanan → pengolahan → penyajian → penjualan.</li>
@@ -211,21 +190,25 @@
     <article id="checklist">
       <span class="article-tag">Bagian 7</span>
       <h2>Checklist harian sederhana</h2>
-      <p>Tempelkan daftar ini di dekat area kerja. Cukup dicentang setiap buka dan tutup toko.</p>
-      <ul class="check-list">
-        <li>Tangan dan sarung tangan bersih sebelum mulai mengolah atau menyajikan makanan.</li>
-        <li>Talenan dan peralatan untuk bahan mentah terpisah dari yang siap saji.</li>
-        <li>Suhu kulkas dan freezer dicek dan berada di rentang aman.</li>
-        <li>Makanan matang yang dipajang tidak melewati batas waktu 2 jam di suhu ruang.</li>
-        <li>Stok lama diperiksa tanggalnya dan dipakai lebih dulu.</li>
-        <li>Area dapur, etalase, dan tempat sampah dalam kondisi bersih di akhir hari.</li>
+      <p>Centang setiap item saat buka dan tutup toko. Centangan tersimpan di perangkat ini untuk hari ini, dan otomatis kosong lagi besok.</p>
+      <p class="check-progress" id="check-progress" aria-live="polite"></p>
+      <ul class="live-checklist" id="live-checklist">
+        <li><label><input type="checkbox"><span>Tangan dan sarung tangan bersih sebelum mulai mengolah atau menyajikan makanan.</span></label></li>
+        <li><label><input type="checkbox"><span>Talenan dan peralatan untuk bahan mentah terpisah dari yang siap saji.</span></label></li>
+        <li><label><input type="checkbox"><span>Suhu kulkas dan freezer dicek dan berada di rentang aman.</span></label></li>
+        <li><label><input type="checkbox"><span>Makanan matang yang dipajang tidak melewati batas waktu 2 jam di suhu ruang.</span></label></li>
+        <li><label><input type="checkbox"><span>Stok lama diperiksa tanggalnya dan dipakai lebih dulu.</span></label></li>
+        <li><label><input type="checkbox"><span>Area dapur, etalase, dan tempat sampah dalam kondisi bersih di akhir hari.</span></label></li>
       </ul>
       <div class="download-box">
         <div>
           <h3>Cetak dan tempel di warung Anda</h3>
-          <p>Salin daftar ini ke kertas atau papan kecil agar mudah dicek setiap hari oleh siapa pun yang bertugas.</p>
+          <p>Cetak daftar ini agar mudah dicek setiap hari oleh siapa pun yang bertugas.</p>
         </div>
-        <a href="index.html" class="btn btn-primary">Kembali ke Beranda</a>
+        <div class="check-actions">
+          <button type="button" class="btn btn-primary" id="check-print">Cetak checklist</button>
+          <button type="button" class="btn btn-outline" id="check-reset">Kosongkan</button>
+        </div>
       </div>
     </article>
 
@@ -250,10 +233,12 @@
         <li><a href="index.html">Beranda</a></li>
         <li><a href="informasi.html">Panduan Lengkap</a></li>
         <li><a href="informasi.html#checklist">Checklist</a></li>
+        <li><a href="index.html#kontak">Kontak</a></li>
       </ul>
     </nav>
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>

@@ -324,6 +324,19 @@ footer nav a:hover{ color: var(--primary-dark); }
   position: sticky;
   top: 90px;
 }
+
+@media (max-width: 860px){
+  .info-layout{ grid-template-columns: 1fr; padding: 36px 0 56px; }
+  .toc{
+    position: static;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    background: var(--paper);
+  }
+  .toc ol{ border-left: none; }
+  .toc a{ padding: 6px 0 6px 14px; }
+}
 .toc h4{
   font-family:'Karla', sans-serif;
   font-weight:700;
@@ -453,3 +466,171 @@ table.temp-table td b{ color: var(--accent-dark); }
 }
 .download-box h3{ color:#fff; margin-bottom:4px; }
 .download-box p{ color:#D9E3DA; margin:0; }
+
+
+/* ===================================================================
+   VERSI 2 — slideshow, stat yang bisa diklik, galeri, kontak,
+   menu HP, checklist interaktif
+=================================================================== */
+
+/* ---------- Menu HP (hamburger) ---------- */
+.nav-toggle{
+  display:none;
+  background: var(--primary);
+  color:#fff;
+  border:0;
+  border-radius: var(--radius);
+  width: 44px; height: 44px;
+  cursor:pointer;
+  align-items:center; justify-content:center;
+  flex-direction:column; gap:5px;
+}
+.nav-toggle span{ display:block; width:20px; height:2px; background:#fff; }
+.brand{ white-space: nowrap; }
+
+@media (max-width: 720px){
+  .site-header .wrap{ padding-top:10px; padding-bottom:10px; position:relative; }
+  .nav-toggle{ display:flex; }
+  nav.main-nav{
+    display:none;
+    position:absolute; left:0; right:0; top:100%;
+    background: var(--paper);
+    border-bottom:1px solid var(--line);
+    padding: 8px 28px 16px;
+    box-shadow: 0 12px 24px rgba(20,53,43,.12);
+  }
+  nav.main-nav.is-open{ display:block; }
+  nav.main-nav ul{ flex-direction:column; gap:0; }
+  nav.main-nav a{ display:block; padding:14px 0; font-size:1.02rem; border-bottom:1px solid var(--line); }
+  nav.main-nav li:last-child a{ border-bottom:0; }
+}
+
+/* ---------- HERO baru: slideshow kiri, teks kanan ---------- */
+.hero{ position:relative; overflow:hidden; background:
+  radial-gradient(circle at 8% 20%, #F6E2B7 0, transparent 38%),
+  radial-gradient(circle at 95% 90%, var(--primary-tint) 0, transparent 40%), var(--bg); }
+.hero .wrap.hero-grid{ grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items:center; }
+.hero h1 mark{ background: linear-gradient(transparent 62%, var(--accent) 62%); color:inherit; padding:0 4px; }
+
+.slider{
+  position:relative;
+  border-radius: 10px;
+  box-shadow: 14px 14px 0 var(--accent);
+  background: var(--primary-dark);
+  aspect-ratio: 4 / 3;
+  overflow:hidden;
+}
+.slide{ position:absolute; inset:0; margin:0; opacity:0; transition: opacity .6s ease; }
+.slide.is-active{ opacity:1; }
+.slide img, .slide video{ width:100%; height:100%; object-fit:cover; }
+.slide figcaption{
+  position:absolute; left:0; right:0; bottom:0;
+  padding: 44px 22px 18px;
+  color:#fff; font-weight:700; font-size:1.02rem;
+  background: linear-gradient(transparent, rgba(20,53,43,.88));
+}
+.slider-btn{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:50%;
+  border:0; cursor:pointer; z-index:3;
+  background: rgba(251,250,245,.92); color: var(--primary-dark);
+  font-size:1.6rem; line-height:1;
+}
+.slider-btn:hover{ background:#fff; }
+.slider-btn.prev{ left:12px; } .slider-btn.next{ right:12px; }
+.dots{ position:absolute; right:16px; bottom:16px; display:flex; gap:8px; z-index:3; }
+.dots button{ width:11px; height:11px; border-radius:50%; border:2px solid #fff; background:transparent; padding:0; cursor:pointer; }
+.dots button.is-active{ background: var(--accent); border-color: var(--accent); }
+
+.badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; padding:0; list-style:none; }
+.badges li{ background: var(--paper); border:1px solid var(--line); border-radius:999px; padding:6px 14px; font-size:.88rem; font-weight:600; color:var(--primary-dark); }
+
+@media (max-width: 860px){
+  .hero{ padding: 36px 0 44px; }
+  .hero .wrap.hero-grid{ grid-template-columns:1fr; gap:40px; }
+  .slider{ box-shadow: 8px 8px 0 var(--accent); margin-right:8px; }
+}
+
+/* ---------- Stat yang bisa diklik ---------- */
+.stat-strip a.stat{
+  display:block; text-decoration:none; color:inherit;
+  padding:18px 20px; border:1px solid rgba(255,255,255,.22); border-radius:6px;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.stat-strip a.stat:hover, .stat-strip a.stat:focus-visible{ background: rgba(255,255,255,.1); border-color: var(--accent); transform: translateY(-3px); }
+.stat-strip a.stat em{ display:block; margin-top:10px; font-style:normal; font-weight:700; color: var(--accent); font-size:.92rem; }
+
+/* ---------- Galeri foto ---------- */
+.gallery{ display:grid; grid-template-columns: repeat(3,1fr); gap:24px; }
+.photo-card{ display:block; text-decoration:none; color:inherit; background:var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden; transition: transform .2s, box-shadow .2s; }
+.photo-card:hover{ transform: translateY(-4px); box-shadow: 0 14px 28px rgba(20,53,43,.14); }
+.photo-card img{ width:100%; aspect-ratio:4/3; object-fit:cover; }
+.photo-card div{ padding:18px 20px 22px; }
+.photo-card h3{ margin-bottom:6px; }
+.photo-card p{ margin:0; font-size:.94rem; color:var(--ink-soft); }
+@media (max-width: 860px){ .gallery{ grid-template-columns:1fr; } }
+
+/* ---------- Pemilik & kontak ---------- */
+.owner{ display:grid; grid-template-columns: 340px 1fr; gap:56px; align-items:center; }
+.owner-photo{ border-radius:10px; overflow:hidden; box-shadow: -12px 12px 0 var(--primary); }
+.owner-photo img{ width:100%; aspect-ratio:1/1; object-fit:cover; }
+.contact-list{ list-style:none; padding:0; margin:22px 0 26px; display:grid; gap:12px; }
+.contact-list a{ display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--primary-dark); font-weight:700; padding:14px 18px; background:var(--paper); border:1px solid var(--line); border-radius:6px; word-break:break-word; }
+.contact-list a:hover{ border-color:var(--primary); }
+.contact-list small{ display:block; font-weight:500; color:var(--ink-soft); font-size:.82rem; }
+.contact-list .ico{ flex:0 0 38px; height:38px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; }
+.contact-list svg{ width:20px; height:20px; }
+@media (max-width: 860px){
+  .owner{ grid-template-columns:1fr; gap:40px; }
+  .owner-photo{ max-width:300px; box-shadow: -8px 8px 0 var(--primary); margin-left:8px; }
+}
+
+/* ---------- Halaman informasi: foto & tabel di HP ---------- */
+.article-flex{ grid-template-columns: 1fr 300px; }
+.article-img{ width:100%; border-radius:8px; border:1px solid var(--line); aspect-ratio:4/3; object-fit:cover; }
+.article-flex .article-img{ max-width:none; }
+@media (max-width: 860px){
+  .article-flex{ grid-template-columns:1fr; }
+  .article-flex .article-img{ order:-1; }
+}
+figure.wide{ margin:0 0 24px; }
+figure.wide img{ width:100%; max-height:300px; object-fit:cover; border-radius:8px; border:1px solid var(--line); }
+figure.wide figcaption{ font-size:.85rem; color:var(--ink-soft); margin-top:6px; }
+
+@media (max-width: 640px){
+  table.temp-table, table.temp-table tbody, table.temp-table tr, table.temp-table td{ display:block; width:100%; }
+  table.temp-table thead{ display:none; }
+  table.temp-table tr{ background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:12px 14px; margin-bottom:12px; }
+  table.temp-table td{ border:0; padding:4px 0; }
+  table.temp-table td:first-child{ font-weight:700; color:var(--primary-dark); }
+  table.temp-table td[data-label]::before{ content: attr(data-label) ": "; color:var(--ink-soft); font-weight:600; font-size:.85rem; }
+}
+
+/* ---------- Checklist interaktif ---------- */
+.live-checklist{ list-style:none; margin:20px 0; padding:0; display:grid; gap:10px; }
+.live-checklist li{ padding:0; border:0; }
+.live-checklist label{ display:flex; gap:14px; align-items:flex-start; padding:16px 18px; background:var(--paper); border:1px solid var(--line); border-radius:6px; cursor:pointer; }
+.live-checklist label:hover{ border-color:var(--primary); }
+.live-checklist input{ appearance:none; -webkit-appearance:none; flex:0 0 26px; width:26px; height:26px; margin:1px 0 0; border:2px solid var(--primary); border-radius:5px; background:#fff; cursor:pointer; display:grid; place-content:center; }
+.live-checklist input::after{ content:""; width:12px; height:7px; border-left:3px solid #fff; border-bottom:3px solid #fff; transform: rotate(-45deg) translate(1px,-1px) scale(0); transition: transform .12s; }
+.live-checklist input:checked{ background:var(--primary); }
+.live-checklist input:checked::after{ transform: rotate(-45deg) translate(1px,-1px) scale(1); }
+.live-checklist input:checked + span{ color:var(--ink-soft); text-decoration:line-through; }
+.live-checklist input:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+.check-progress{ font-weight:700; color:var(--primary-dark); margin:0 0 6px; }
+.check-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+.download-box .btn-outline{ border-color:#fff; color:#fff; }
+.download-box .btn-outline:hover{ background:#fff; color:var(--primary-dark); }
+@media (max-width: 640px){ .download-box{ padding:24px 20px; } .check-actions .btn{ flex:1 1 100%; justify-content:center; } }
+
+/* ---------- Cetak: hanya checklist ---------- */
+@media print{
+  .site-header, footer, .toc, .info-hero, .info-content > article:not(#checklist), .check-actions, .article-tag, .download-box{ display:none !important; }
+  .info-layout{ display:block; padding:0; }
+  body{ background:#fff; }
+  .download-box{ background:none; color:#000; padding:0; }
+}
+
+/* penyesuaian hero */
+.hero h1{ font-size: clamp(2rem, 3.6vw, 3rem); }
+.slide figcaption{ padding-right: 100px; }

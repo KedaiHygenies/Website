@@ -19,12 +19,14 @@
       </svg>
       Kedai Hygenies
     </a>
-    <nav class="main-nav" aria-label="Navigasi utama">
+    <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="Navigasi utama">
       <ul>
         <li><a href="index.html" class="active">Beranda</a></li>
         <li><a href="informasi.html">Panduan Lengkap</a></li>
         <li><a href="informasi.html#haccp">Sistem HACCP</a></li>
         <li><a href="informasi.html#checklist">Checklist</a></li>
+        <li><a href="#kontak">Kontak</a></li>
       </ul>
     </nav>
   </div>
@@ -32,61 +34,74 @@
 
 <main>
 
-  <!-- HERO -->
+  <!-- HERO: slideshow di kiri, teks di kanan -->
   <section class="hero">
-    <div class="wrap">
-      <div>
+    <div class="wrap hero-grid">
+
+      <div class="slider" role="region" aria-roledescription="carousel" aria-label="Foto kebersihan dan keamanan pangan">
+        <!--
+          CARA GANTI FOTO: ganti nilai src="images/..." di bawah dengan foto Anda
+          (misalnya images/foto-cuci-tangan.jpg) dan sesuaikan teks alt serta figcaption.
+          CARA PAKAI VIDEO: ganti salah satu <img> dengan
+          <video src="images/video.mp4" muted loop playsinline poster="images/stall.svg"></video>
+        -->
+        <figure class="slide">
+          <img src="images/handwash.svg" alt="Ilustrasi mencuci tangan dengan sabun di bawah air mengalir">
+          <figcaption>Cuci tangan dengan sabun sebelum menyentuh makanan</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="images/stall.svg" alt="Ilustrasi kedai makanan dengan etalase tertutup yang bersih">
+          <figcaption>Etalase tertutup dan bersih menjaga makanan tetap aman</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="images/fridge.svg" alt="Ilustrasi kulkas dengan bahan mentah di rak paling bawah dan suhu di bawah 5 derajat">
+          <figcaption>Simpan bahan segar di kulkas, bahan mentah di rak bawah</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="images/thermometer.svg" alt="Ilustrasi termometer makanan pada daging yang dimasak">
+          <figcaption>Masak sampai suhu yang tepat agar bakteri mati</figcaption>
+        </figure>
+        <button class="slider-btn prev" type="button" aria-label="Foto sebelumnya">&#8249;</button>
+        <button class="slider-btn next" type="button" aria-label="Foto berikutnya">&#8250;</button>
+        <div class="dots" aria-label="Pilih foto"></div>
+      </div>
+
+      <div class="hero-text">
         <p class="eyebrow-plain">Untuk pemilik warung, toko kelontong &amp; usaha makanan kecil</p>
-        <h1>Makanan yang bersih dan aman dimulai dari kebiasaan sederhana di tempat Anda.</h1>
-        <p class="lead">Kedai Hygenies membantu Anda menerapkan kebersihan dan keamanan pangan sehari-hari — dari cuci tangan, memisahkan bahan mentah, hingga menyimpan stok dengan suhu yang tepat — supaya pelanggan percaya dan usaha Anda terhindar dari masalah.</p>
+        <h1>Makanan bersih &amp; aman dimulai dari <mark>kebiasaan sederhana</mark> di kedai Anda.</h1>
+        <p class="lead">Kedai Hygenies membantu Anda menerapkan kebersihan dan keamanan pangan sehari-hari — dari cuci tangan, memisahkan bahan mentah, hingga menyimpan stok pada suhu yang tepat — supaya pelanggan percaya dan usaha Anda terhindar dari masalah.</p>
         <div class="hero-actions">
           <a href="informasi.html" class="btn btn-primary">Buka Panduan Lengkap</a>
-          <a href="informasi.html#checklist" class="btn btn-outline">Lihat Checklist Harian</a>
+          <a href="informasi.html#checklist" class="btn btn-outline">Checklist Harian</a>
         </div>
+        <ul class="badges">
+          <li>Bahasa Indonesia</li>
+          <li>Mudah dipraktikkan</li>
+          <li>Berbasis panduan EFSA &amp; HACCP</li>
+        </ul>
       </div>
-      <svg class="hero-art" viewBox="0 0 420 380" aria-hidden="true">
-        <!-- stall roof -->
-        <path d="M40 130 L210 60 L380 130 Z" fill="#1F4D3F"/>
-        <rect x="55" y="130" width="310" height="12" fill="#14352B"/>
-        <!-- counter -->
-        <rect x="70" y="230" width="280" height="100" rx="6" fill="#FBFAF5" stroke="#DAD3C0" stroke-width="2"/>
-        <rect x="70" y="230" width="280" height="14" fill="#E2A63B"/>
-        <!-- legs -->
-        <rect x="85" y="330" width="14" height="30" fill="#14352B"/>
-        <rect x="321" y="330" width="14" height="30" fill="#14352B"/>
-        <!-- food trays -->
-        <circle cx="130" cy="215" r="26" fill="#E2A63B"/>
-        <circle cx="130" cy="215" r="18" fill="#FBFAF5"/>
-        <circle cx="210" cy="210" r="30" fill="#C1443C" opacity="0.85"/>
-        <circle cx="210" cy="210" r="20" fill="#FBFAF5"/>
-        <circle cx="290" cy="215" r="24" fill="#1F4D3F"/>
-        <circle cx="290" cy="215" r="16" fill="#FBFAF5"/>
-        <!-- hand wash droplet badge -->
-        <circle cx="345" cy="90" r="34" fill="#FBFAF5" stroke="#1F4D3F" stroke-width="3"/>
-        <path d="M345 74c8 10 13 17 13 24a13 13 0 1 1-26 0c0-7 5-14 13-24z" fill="#1F4D3F"/>
-        <!-- thermometer badge -->
-        <circle cx="60" cy="70" r="28" fill="#FBFAF5" stroke="#E2A63B" stroke-width="3"/>
-        <rect x="56" y="48" width="8" height="26" rx="4" fill="#C1443C"/>
-        <circle cx="60" cy="80" r="8" fill="#C1443C"/>
-      </svg>
+
     </div>
   </section>
 
-  <!-- STAT STRIP -->
+  <!-- STATISTIK (bisa diklik) -->
   <div class="stat-strip">
     <div class="wrap">
-      <div class="stat">
+      <a class="stat" href="informasi.html#kontaminasi-silang">
         <b>1 dari 10</b>
         <span>orang di dunia pernah sakit karena mengonsumsi makanan yang terkontaminasi, menurut data WHO.</span>
-      </div>
-      <div class="stat">
+        <em>Cara mencegahnya &rarr;</em>
+      </a>
+      <a class="stat" href="informasi.html#kebersihan">
         <b>200+</b>
         <span>jenis penyakit dapat timbul akibat makanan yang tidak ditangani dengan bersih dan aman.</span>
-      </div>
-      <div class="stat">
+        <em>Mulai dari kebersihan &rarr;</em>
+      </a>
+      <a class="stat" href="informasi.html#penyimpanan">
         <b>2 jam</b>
         <span>batas aman makanan matang berada di suhu ruang sebelum harus disimpan dingin atau dipanaskan kembali.</span>
-      </div>
+        <em>Aturan penyimpanan &rarr;</em>
+      </a>
     </div>
   </div>
 
@@ -145,6 +160,60 @@
     </div>
   </section>
 
+  <!-- GALERI FOTO -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow-plain">Lihat langsung</p>
+        <h2>Kebiasaan kecil yang terlihat jelas di kedai yang bersih</h2>
+        <p>Tiga hal yang paling sering menentukan apakah makanan di tempat Anda aman atau tidak.</p>
+      </div>
+      <div class="gallery">
+        <a class="photo-card" href="informasi.html#kebersihan">
+          <img src="images/handwash.svg" alt="Ilustrasi mencuci tangan dengan sabun" loading="lazy">
+          <div><h3>Cuci tangan dengan benar</h3><p>Sabun, air mengalir, dan dilakukan setiap berganti pekerjaan.</p></div>
+        </a>
+        <a class="photo-card" href="informasi.html#kontaminasi-silang">
+          <img src="images/boards.svg" alt="Ilustrasi dua talenan terpisah untuk bahan mentah dan sayuran" loading="lazy">
+          <div><h3>Talenan terpisah</h3><p>Satu untuk bahan mentah, satu untuk makanan siap saji.</p></div>
+        </a>
+        <a class="photo-card" href="informasi.html#air-bahan">
+          <img src="images/produce.svg" alt="Ilustrasi sayur dan buah yang dicuci dengan air bersih" loading="lazy">
+          <div><h3>Bahan segar &amp; air bersih</h3><p>Cuci sayur dan buah di air mengalir sebelum dijual atau diolah.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEMILIK & KONTAK -->
+  <section id="kontak" style="background: var(--primary-tint); border-top:1px solid var(--line);">
+    <div class="wrap owner">
+      <div class="owner-photo">
+        <!-- GANTI FOTO PEMILIK: ubah src menjadi foto Anda, misalnya images/pemilik.jpg -->
+        <img src="images/owner.svg" alt="Foto pemilik Kedai Hygenies" loading="lazy">
+      </div>
+      <div>
+        <p class="eyebrow-plain">Kenali pemiliknya</p>
+        <h2>Ada pertanyaan soal kebersihan di usaha Anda? Hubungi kami.</h2>
+        <p><strong>Nama Pemilik</strong> — Pemilik Kedai Hygenies. Silakan hubungi langsung untuk bertanya atau meminta saran praktis untuk warung dan toko Anda.</p>
+        <ul class="contact-list">
+          <li>
+            <a href="mailto:nama@kedaihygenies.id">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#14352B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+              <span><small>Email</small>nama@kedaihygenies.id</span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+6281200000000">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#14352B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+              <span><small>Telepon / WhatsApp</small>+62 812-0000-0000</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <div class="cta-band">
     <div class="wrap">
@@ -176,10 +245,12 @@
         <li><a href="index.html">Beranda</a></li>
         <li><a href="informasi.html">Panduan Lengkap</a></li>
         <li><a href="informasi.html#checklist">Checklist</a></li>
+        <li><a href="#kontak">Kontak</a></li>
       </ul>
     </nav>
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
